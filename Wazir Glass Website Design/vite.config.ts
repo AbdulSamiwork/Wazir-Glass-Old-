@@ -51,7 +51,7 @@ import path from 'path';
     },
     build: {
       target: 'esnext',
-      outDir: 'build',
+      outDir: 'dist',
       cssCodeSplit: true,
       chunkSizeWarningLimit: 1000,
       rollupOptions: {
