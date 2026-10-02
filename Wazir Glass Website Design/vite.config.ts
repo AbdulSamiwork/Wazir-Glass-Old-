@@ -58,22 +58,10 @@ import path from 'path';
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
-              if (id.includes('react') || id.includes('react-dom')) {
-                return 'vendor-core';
-              }
-              if (id.includes('lucide-react')) {
-                return 'vendor-icons';
-              }
-              if (id.includes('recharts') || id.includes('d3')) {
-                return 'vendor-charts';
-              }
+              // Safely isolate heavy PDF generation utilities without breaking React context
               if (id.includes('jspdf') || id.includes('html2canvas')) {
                 return 'vendor-pdf';
               }
-              if (id.includes('@radix-ui')) {
-                return 'vendor-ui';
-              }
-              return 'vendor-deps';
             }
           },
         },
